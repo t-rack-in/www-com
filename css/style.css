@@ -859,6 +859,12 @@ iframe {
 }
 
 
+.navbar-brand img{
+	max-width: 170px;
+	margin-top: -20px;
+}
+
+
 
 .navbar-fixed-top.opaque .navbar-brand{
 
