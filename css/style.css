@@ -2606,7 +2606,7 @@ textarea{
 
 
 
-input.contact-submit{
+button.contact-submit{
 
 	color: #fff;
 
@@ -2644,7 +2644,7 @@ input.contact-submit{
 
 
 
-input.contact-submit:hover{
+button.contact-submit:hover{
 
 	color: #fff;
 
@@ -4052,3 +4052,39 @@ ul.partners-mentions li img:hover {
 
 }
 
+#overlay {
+	background: #000;
+	color: #f6f6f6;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	z-index: 9999;
+	top: 0;
+	left: 0;
+	float: left;
+	text-align: center;
+	opacity: .80;
+}
+.overlay-text {
+	position: absolute;
+	top: 50%;
+	right: 50%;
+	transform: translate(-50%, -50%);
+}
+.spinner {
+	margin: 0 auto;
+	height: 64px;
+	width: 64px;
+	animation: rotate 0.8s infinite linear;
+	border: 5px solid #0168fa;
+	border-right-color: transparent;
+	border-radius: 50%;
+}
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

@@ -535,18 +535,25 @@
                     <h4>Fale Conosco</h4>
                     <p class="contact_success_box" style="display:none;">We received your message and you'll hear from
                         us soon. Thank You!</p>
-                    <form id="contact-form" class="contact" action="#" method="post">
-                        <input class="contact-input white-input" required="" name="company_name"
-                            placeholder="Nome da Empresa" type="text">
-                        <input class="contact-input white-input" required="" name="name"
+                    <form id="contact-form" class="contact" action="http://crm.ogestor.com.br/api/negocios/adicionar" method="post">
+                        <div>
+                            <input type="hidden" name="lead_origem" value="19">
+                            <input type="hidden" name="lead_campanha" value="0">
+                            <input type="hidden" name="lead_titulo" value="Interesse no T-rack.in">
+                            <input type="hidden" name="lead_status" value="57">
+                            <input type="hidden" name="lead_responsavel" value="1">
+                        </div>
+<!--                        <input class="contact-input white-input" required="" name="contato[][organizacao][][organizacao_nome]"-->
+<!--                            placeholder="Nome da Empresa" type="text">-->
+                        <input class="contact-input white-input" required="" name="contato[][contato_nome]"
                             placeholder="Nome para Contato" type="text">
-                        <input class="contact-input white-input" required="" name="email"
+                        <input class="contact-input white-input" required="" name="contato[][emails][][email_endereco]"
                             placeholder="Email" type="email">
-                        <input class="contact-input white-input" required="" name="phone"
+                        <input class="contact-input white-input" required="" name="contato[][telefones][][telefone_numero]"
                             placeholder="Telefone" type="text">
-                        <textarea class="contact-commnent white-input" rows="2" cols="20" name="message"
+                        <textarea class="contact-commnent white-input" rows="2" cols="20" name="lead_observacao"
                             placeholder="Descreva sua necessidade..."></textarea>
-                        <input value="Enviar" id="submit-button" class="contact-submit" type="submit">
+                        <button id="submit-button" class="contact-submit" type="submit">Enviar</button>
                     </form>
                 </div>
 
@@ -589,6 +596,13 @@
         </div>
     </div>
 
+    <div id="overlay" style="display:none;">
+        <div class="overlay-text">
+            <div class="spinner"></div>
+            <br/>
+            <strong>Enviando...</strong>
+        </div>
+    </div>
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -598,6 +612,39 @@
     <script src="js/wow.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/custom.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#contact-form').on('submit', function(e) {
+               e.preventDefault();
+               let $form = $(this);
+               $.ajax({
+                   url: $form.attr('action') + '?debug_ogestor=28056d52-b840-11e9-a19f-d8cb8a1dac5e',
+                   type: 'POST',
+                   dataType: 'JSON',
+                   data: $form.serializeArray(),
+                   headers: {'Authorization': '28056d52-b840-11e9-a19f-d8cb8a1dac5e'},
+                   beforeSend: function() {
+                       $('#overlay').css('display', 'block');
+                   },
+                   success: function(response) {
+                       if(response.hasOwnProperty('meta') && response.meta.hasOwnProperty('code') && response.meta.code === 201) {
+                           $form.find(':input').not(':hidden').each(function() { $(this).val('').trigger('change'); });
+                           swal("Sucesso", "Seu contato com interesse em nossos serviços foi enviado com sucesso! Aguarde nosso retorno, entraremos em contato assim que possível.", "success");
+                       } else {
+                           swal("Erro", "Houve um problema ao tentar enviar seu contato com interesse em nossos serviços. Por favor, tente novamente mais tarde.", "error");
+                       }
+                   },
+                   error: function(err) {
+                       swal("Erro inesperado", "Houve um problema ao tentar enviar seu contato com interesse em nossos serviços. Por favor, tente novamente mais tarde.", "error");
+                   },
+                   complete: function() {
+                       $('#overlay').css('display', 'none');
+                   }
+               });
+            });
+        });
+    </script>
 </body>
 
 </html>
