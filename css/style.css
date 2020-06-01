@@ -1478,7 +1478,7 @@ ul.home-benefits li i {
 
 
 
-#newsletter-form #submit-button-newsletter {
+#submit-button-newsletter {
 
     width: 125px;
 
@@ -1500,6 +1500,8 @@ ul.home-benefits li i {
 
     border-radius: 30px 30px;
 
+	padding: 20px 40px;
+
 	font-size:14px;
 
 	font-weight:700;
@@ -1518,7 +1520,7 @@ ul.home-benefits li i {
 
 
 
-#newsletter-form #submit-button-newsletter:hover {
+#submit-button-newsletter:hover {
 
 	cursor: pointer;
 
@@ -3896,7 +3898,7 @@ ul.partners-mentions li img:hover {
 
 
 
-	#newsletter-form #submit-button-newsletter {
+	#submit-button-newsletter {
 
 	    display: inline-block;
 
