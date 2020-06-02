@@ -608,11 +608,11 @@
                e.preventDefault();
                let $form = $(this);
                $.ajax({
-                   url: $form.attr('action') + '?debug_ogestor=28056d52-b840-11e9-a19f-d8cb8a1dac5e',
+                   url: $form.attr('action'),
                    type: 'POST',
                    dataType: 'JSON',
                    data: $form.serializeArray(),
-                   headers: {'Authorization': '28056d52-b840-11e9-a19f-d8cb8a1dac5e'},
+                   headers: {'Authorization': '5a6bfec4-a50a-11ea-a7ed-0237aeab3997'},
                    beforeSend: function() {
                        $('#overlay').css('display', 'block');
                    },
