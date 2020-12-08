@@ -3452,6 +3452,13 @@ a.btn-blue:visited, a.btn-blue:focus{
 
 }
 
+.section-grey .carousel-indicators li {
+	background-color: #4aa3ff;
+}
+
+.section-grey .carousel-indicators li.active {
+	background-color: #007bff;
+}
 
 
 .carousel-indicators.testimonials-indicators {
