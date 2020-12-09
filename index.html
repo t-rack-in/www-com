@@ -685,7 +685,7 @@
     <script>
         $(document).ready(function() {
             $('.dropdown-item').click(function() {
-                location.href = location.host + $(this).attr('href');
+                location.href = $(this).attr('href');
             });
             $('#contact-form').on('submit', function(e) {
                e.preventDefault();
