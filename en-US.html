@@ -51,7 +51,7 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="/index.html">
-                                    <i class="flag-icon flag-icon-br"></i> Brazil
+                                    <i class="flag-icon flag-icon-br"></i> Portuguese
                                 </a>
                                 <a class="dropdown-item" href="#">
                                     <i class="flag-icon flag-icon-fr"></i> French
@@ -112,7 +112,7 @@
                         <i class="pe-7s-shuffle"></i>
                         <div class="main-services-text">
                             <h3>Multi Companies</h3>
-                            <p>Quick access and use of shared data from all your companies in just one system.</p>
+                            <p>Manage all you asset tracking of all companies in only one system with our quick access feature and shared data reports.</p>
                         </div>
                     </div>
                 </div>
@@ -675,6 +675,9 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         $(document).ready(function() {
+            $('.dropdown-item').click(function() {
+                location.href = location.host + $(this).attr('href');
+            });
             $('#contact-form').on('submit', function(e) {
                e.preventDefault();
                let $form = $(this), data = {};
