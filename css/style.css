@@ -3140,6 +3140,8 @@ a.btn-blue:visited, a.btn-blue:focus{
 
     border-radius: 0 0 5px 5px;
 
+	min-height: 140px;
+
 }
 
 
