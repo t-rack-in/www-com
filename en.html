@@ -794,6 +794,19 @@
             });
         });
     </script>
+    <script>
+        $(document).ready(function() { checkResize(); });
+        window.addEventListener('resize', function(event) {
+            checkResize();
+        }, true);
+        function checkResize() {
+            if(window.innerWidth <= 1712) {
+                $('.portfolio-info').css('height', '435px');
+            } else {
+                $('.portfolio-info').css('height', '340px');
+            }
+        }
+    </script>
     <!-- Hotjar Tracking Code for https://t-rack.in/ -->
     <script>
         (function(h,o,t,j,a,r){
